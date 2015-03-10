@@ -4,7 +4,7 @@ default: all
 ##build root dirs
 
 enc-build		:= submodule/encounter_tools/build
-py-build		:= submodule/gds-to-txt
+py-build		:= submodule/python
 matlab-build	:= submodule/rectDecomp
 
 ##build tmp dirs
@@ -12,7 +12,7 @@ matlab-build	:= submodule/rectDecomp
 ###post par file dir
 post-par		:= $(enc-build)/enc-par/current
 ###python input & output dirs 
-py-gds			:= $(py-build)/gds
+py-gds			:= $(py-build)/design
 py-txt			:= $(py-build)/txt
 ###matlab input & output dirs
 m-txt			:= $(matlab-build)/txt
@@ -28,14 +28,16 @@ enc:
 	make;\
 	cd -
 
-py: enc
-	rm -rf $(py-gds)/*.gds;\
-	cp $(post-par)/*.gds $(py-gds);\
+py: 
+	rm -rf $(py-gds)/TjIn.gds;\
+	cp $(post-par)/TjIn.gds $(py-gds);\
 	cd $(py-build);\
-	python dumpGDS.py;\
+	python convert.py;\
 	cd -
 
-matlab: py
+matlab: 
+	rm -rf $(m-txt)/*.txt;\
+	cp $(py-txt)/TjIn.txt $(m-txt);\
 	cd $(matlab-build);\
 	matlab -nodisplay -nosplash -r "parse;quit;";\
 	cd -

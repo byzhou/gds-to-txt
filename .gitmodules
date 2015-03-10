@@ -1,9 +1,9 @@
 [submodule "submodule/encounter_tools"]
 	path = submodule/encounter_tools
 	url = https://boyou_zhou@bitbucket.org/boyou_zhou/cds-msim-cosim.git
-[submodule "submodule/gds-to-txt"]
-	path = submodule/gds-to-txt
-	url = https://byzhou@github.com/byzhou/output_gds.git
 [submodule "submodule/rectDecomp"]
 	path = submodule/rectDecomp
 	url = https://boyou_zhou@bitbucket.org/boyou_zhou/rectdump.git
+[submodule "submodule/python"]
+	path = submodule/python
+	url = https://byzhou@github.com/byzhou/designGDS2txt.git
